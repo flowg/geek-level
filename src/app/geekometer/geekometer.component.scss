@@ -1,0 +1,43 @@
+// Variables
+$outer-ring-radius: 300px;
+$outer-ring-thickness: 30px;
+$pointer-base-radius: 40px;
+
+// Actual Styling
+.circular {
+  border-radius: 100%;
+
+  &.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.outer-ring {
+  background-color: darkred;
+  width: $outer-ring-radius;
+  height: $outer-ring-radius;
+
+  .inner-disk {
+    background-color: antiquewhite;
+    width: $outer-ring-radius - $outer-ring-thickness;
+    height: $outer-ring-radius - $outer-ring-thickness;
+
+    .pointer-base {
+      background-color: coral;
+      width: $pointer-base-radius;
+      height: $pointer-base-radius;
+
+      .pointer {
+        background-color: black;
+        width: 4px;
+        height: ($outer-ring-radius - $outer-ring-thickness) / 2;
+        position: relative;
+        top: ($pointer-base-radius / 2) - 10px;
+        left: ($pointer-base-radius / 2) - 2px;
+        transform-origin: center 10px;
+      }
+    }
+  }
+}
