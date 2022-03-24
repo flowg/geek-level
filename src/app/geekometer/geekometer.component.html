@@ -3,6 +3,16 @@
     <div class="pointer-base circular">
       <div class="pointer" [style.transform]="'rotate(' + angle + 'deg)'"></div>
     </div>
+    <div class="display">{{level}}</div>
   </div>
 </div>
-<button (click)="computePointerAngle(10)"></button>
+<button mat-mini-fab color="accent"
+        (click)="computePointerAngle(-variationStep)"
+        aria-label="Decrease your Geek level">
+  <mat-icon>remove</mat-icon>
+</button>
+<button mat-mini-fab color="accent"
+        (click)="computePointerAngle(variationStep)"
+        aria-label="Increase your Geek level">
+  <mat-icon>add</mat-icon>
+</button>

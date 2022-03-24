@@ -23,6 +23,7 @@ $pointer-base-radius: 40px;
     background-color: antiquewhite;
     width: $outer-ring-radius - $outer-ring-thickness;
     height: $outer-ring-radius - $outer-ring-thickness;
+    position: relative;
 
     .pointer-base {
       background-color: coral;
@@ -38,6 +39,15 @@ $pointer-base-radius: 40px;
         left: ($pointer-base-radius / 2) - 2px;
         transform-origin: center 10px;
       }
+    }
+
+    .display {
+      background-color: antiquewhite;
+      position: absolute;
+      bottom: -20px;
+      width: 100px;
+      line-height: 2rem;
+      text-align: center;
     }
   }
 }

@@ -15,22 +15,28 @@ const angleOffset = 20;
 } )
 export class GeekometerComponent implements OnInit {
   angle = angleOffset;
+  level = 0;
+  variationStep = 5;
 
   ngOnInit(): void {
     this.computePointerAngle();
   }
 
   computePointerAngle( percentageVariation?: number ): void {
+    console.log(percentageVariation)
     if ( percentageVariation ) {
       const amplitude = 360 - 2 * angleOffset;
       const degreeVariation = ( amplitude * percentageVariation ) / 200;
       const expectedAngle = this.angle + degreeVariation;
       if ( expectedAngle < angleOffset ) {
         this.angle = angleOffset;
+        this.level = 0;
       } else if ( expectedAngle > 360 - angleOffset ) {
         this.angle = 360 - angleOffset;
+        this.level = 200;
       } else {
         this.angle = expectedAngle;
+        this.level += percentageVariation;
       }
     }
   }
